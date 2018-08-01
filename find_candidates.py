@@ -7,7 +7,6 @@ with open('world_cities.csv', mode='r') as infile:
         my_dict = {rows[0]: {rows[1]} for rows in reader}
 
 
-article_link = input("Enter the url of the article")
 def find_candidates(story):
 
     transtable = str.maketrans({key: " " for key in string.punctuation})
@@ -21,11 +20,15 @@ def find_candidates(story):
         for c in string.ascii_uppercase:
             if c in word:
                 candidates.append(word)
+    print(candidates)
     return candidates
 
-for n in find_candidates(article_link):
-    try:
-        if type(my_dict[n]) == set:
-            print(n, my_dict[n])
-    except:
-        pass
+def find_locations(candidates):
+    location_list = []
+    for n in candidates:
+        try:
+            if type(my_dict[n]) == set:
+                location_list.append(n)
+        except:
+            pass
+    return location_list
