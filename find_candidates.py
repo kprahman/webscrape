@@ -20,7 +20,6 @@ def find_candidates(story):
         for c in string.ascii_uppercase:
             if c in word:
                 candidates.append(word)
-    print(candidates)
     return candidates
 
 def find_locations(candidates):
